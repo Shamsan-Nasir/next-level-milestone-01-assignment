@@ -7,13 +7,16 @@ function multiplyValue(value: number, multiplier?: number): number {
     } else {
         answer = value*2
     }
-    console.log(answer)
+ 
     return answer
 
 
 }
 
 multiplyValue(5,0);
+
+
+
 
 function processInput( value: string | number | boolean): number | string {
     let answer: number | string
@@ -30,30 +33,39 @@ function processInput( value: string | number | boolean): number | string {
             answer = 'Inactive'
         }
      }
-     console.log(answer)
+   
      return answer
 }
 
 processInput(10)
 
+
+
+
 function formatCoordinate( value : readonly [number,number,string]) : string {
     let formattedAnswer : string = `Location: ${value[2]} (${value[0]}, ${value[1]})`
-    console.log(formattedAnswer)
+    // console.log(formattedAnswer)
     return formattedAnswer
 
 }
 formatCoordinate([10.222,10.111,'ctg'])
+
+
+
 
 function concatenateArrays<T>(...arrays: T[][]): T[]{
     let combinedArray: T[] = []
     for (let elements of arrays){
         combinedArray = [...combinedArray,...elements]
     }
-    console.log(combinedArray)
+    // console.log(combinedArray)
     return combinedArray
 }
 
-concatenateArrays(['h','e'],['l','p'],['m','e'])
+concatenateArrays(['h','e'],['l','p'],['e','r'])
+
+
+
 
 interface Course {
     title:string,
@@ -68,7 +80,7 @@ interface Course {
             filteredCourses.push(course)
         }
     }
-    console.log(filteredCourses)
+    // console.log(filteredCourses)
     return filteredCourses
  }
  const courses = [
@@ -81,12 +93,14 @@ interface Course {
 getPopularCourses(courses, 80);
 
 
+
+
 function pluckValues<T, K extends keyof T>(items: T[],key: K):T[K][]{
     const plucked: T[K][] = [];
     for (let value of items){
         plucked.push(value[key])
     }
-    console.log(plucked)
+    // console.log(plucked)
     return plucked
 }
 
@@ -100,6 +114,9 @@ pluckValues(users, "name");
 pluckValues(users, "role");
 
 
+
+
+
 class Employee {
     protected name:string
     private baseSalary: number
@@ -111,14 +128,14 @@ class Employee {
         this.baseSalary = baseSalary
     }
     public getDetails():string{
-        console.log(`Employee: ${this.name}, Base Salary: ${this.baseSalary}`)
+        // console.log(`Employee: ${this.name}, Base Salary: ${this.baseSalary}`)
+
         return `Employee: ${this.name}, Base Salary: ${this.baseSalary}` 
     }
 }
 
 class Manager extends Employee{
    private department:string;
-   
    constructor(
     name:string,
     baseSalary:number,
@@ -128,8 +145,8 @@ class Manager extends Employee{
     this.department = department
    }
 
-   public getRoleInfo(){
-    console.log(`Manager of ${this.department}: ${this.name}`)
+   public getRoleInfo():string{
+    // console.log(`Manager of ${this.department}: ${this.name}`)
     return `Manager of ${this.department}: ${this.name}`
    }
 
@@ -140,9 +157,9 @@ const manager = new Manager("Alice", 50000, "Engineering");
 manager.getDetails();
 manager.getRoleInfo();
 
-// Sample Output:
-"Employee: Alice, Base Salary: 50000"
-"Manager of Engineering: Alice"
+ 
+
+
 
 async function validateAgeAsync(age:number):Promise<string>{
     if (age < 18){
