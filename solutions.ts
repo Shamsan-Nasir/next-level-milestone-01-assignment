@@ -143,3 +143,14 @@ manager.getRoleInfo();
 // Sample Output:
 "Employee: Alice, Base Salary: 50000"
 "Manager of Engineering: Alice"
+
+async function validateAgeAsync(age:number):Promise<string>{
+    if (age < 18){
+        throw new Error("Access Denied: Must be 18 or older")
+    } else {
+        await new Promise<void>((resolve) => {
+            setTimeout(resolve,1000)
+        })
+        return 'Access Granted'
+    }
+}
