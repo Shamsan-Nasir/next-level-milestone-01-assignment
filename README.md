@@ -1,2 +1,2 @@
 # next-level-milestone-01-assignment
-asssignment to learn and get used to typescript fundamentals 
+This assignments is to learn and get used to typescript fundamentals. Solved 8 problems here based on a range of topics including optional parameters, classes, access modifiers, interfaces, generics and promises. the solutions of the problems are included in solutions.ts . Furthermore, this also includes two blogs (access-modifiers.md and Union-Intersection.md) regarding some of the topics to further strengthen my understanding of the studied topics. 
