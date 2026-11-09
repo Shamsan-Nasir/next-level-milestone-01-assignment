@@ -79,3 +79,67 @@ interface Course {
 ];
 
 getPopularCourses(courses, 80);
+
+
+function pluckValues<T, K extends keyof T>(items: T[],key: K):T[K][]{
+    const plucked: T[K][] = [];
+    for (let value of items){
+        plucked.push(value[key])
+    }
+    console.log(plucked)
+    return plucked
+}
+
+const users = [
+  { id: 1, name: "Rakib", role: "Admin" },
+  { id: 2, name: "Sadia", role: "Editor" },
+  { id: 3, name: "Tariq", role: "Subscriber" }
+];
+
+pluckValues(users, "name");
+pluckValues(users, "role");
+
+
+class Employee {
+    protected name:string
+    private baseSalary: number
+    
+    constructor(name:string,
+        baseSalary:number
+    ) {
+        this.name = name;
+        this.baseSalary = baseSalary
+    }
+    public getDetails():string{
+        console.log(`Employee: ${this.name}, Base Salary: ${this.baseSalary}`)
+        return `Employee: ${this.name}, Base Salary: ${this.baseSalary}` 
+    }
+}
+
+class Manager extends Employee{
+   private department:string;
+   
+   constructor(
+    name:string,
+    baseSalary:number,
+    department:string
+   ){
+    super(name,baseSalary);
+    this.department = department
+   }
+
+   public getRoleInfo(){
+    console.log(`Manager of ${this.department}: ${this.name}`)
+    return `Manager of ${this.department}: ${this.name}`
+   }
+
+   
+}
+
+const manager = new Manager("Alice", 50000, "Engineering");
+manager.getDetails();
+manager.getRoleInfo();
+
+// Sample Output:
+"Employee: Alice, Base Salary: 50000"
+"Manager of Engineering: Alice"
